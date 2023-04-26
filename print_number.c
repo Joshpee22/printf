@@ -1,27 +1,27 @@
 #include "main.h"
 
 /**
- * _isdigit - checks if character is digit
- * @c: the character to check
+ * _isdigit - checks if it is a digit
+ * @ch: the character to check
  *
- * Return: 1 if digit, 0 otherwise
+ * Return: 1 if digit, 0 if not.
  */
-int _isdigit(int c)
+int _isdigit(int ch)
 {
-	return (c >= '0' && c <= '9');
+	return (ch >= '0' && ch <= '9');
 }
 
 /**
  * _strlen - returns the length of a string
- * @s: the string whose length to check
+ * @str: the string whose length to check
  *
  * Return: integer length of string
  */
-int _strlen(char *s)
+int _strlen(char *str)
 {
 	int i = 0;
 
-	while (*s++)
+	while (*str++)
 		i++;
 	return (i);
 }

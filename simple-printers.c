@@ -1,36 +1,36 @@
 #include "main.h"
 
 /**
- * print_from_to - prints a range of char addresses
- * @start: starting address
- * @stop: stopping address
+ * print_from_to - prints a range of addressess
+ * @start: star address
+ * @stop: stop address
  * @except: except address
  *
- * Return: number bytes printed
+ * Return: number of  bytes printed
  */
 int print_from_to(char *start, char *stop, char *except)
 {
-	int sum = 0;
+	int summation = 0;
 
 	while (start <= stop)
 	{
 		if (start != except)
-			sum += _putchar(*start);
+			summation += _putchar(*start);
 		start++;
 	}
-	return (sum);
+	return (summation);
 }
 
 /**
- * print_rev - prints string in reverse
+ * print_rev - reverse print strings
  * @ap: string
- * @params: the parameters struct
+ * @params: the parameters
  *
  * Return: number bytes printed
  */
 int print_rev(va_list ap, params_t *params)
 {
-	int len, sum = 0;
+	int len, summation = 0;
 	char *str = va_arg(ap, char *);
 	(void)params;
 
@@ -40,9 +40,9 @@ int print_rev(va_list ap, params_t *params)
 			len++;
 		str--;
 		for (; len > 0; len--, str--)
-			sum += _putchar(*str);
+			summation += _putchar(*str);
 	}
-	return (sum);
+	return (summation);
 }
 
 /**
@@ -54,26 +54,26 @@ int print_rev(va_list ap, params_t *params)
  */
 int print_rot13(va_list ap, params_t *params)
 {
-	int i, index;
+	int j, index;
 	int count = 0;
 	char arr[] =
 		"NOPQRSTUVWXYZABCDEFGHIJKLM      nopqrstuvwxyzabcdefghijklm";
 	char *a = va_arg(ap, char *);
 	(void)params;
 
-	i = 0;
+	j = 0;
 	index = 0;
-	while (a[i])
+	while (a[j])
 	{
-		if ((a[i] >= 'A' && a[i] <= 'Z')
-		    || (a[i] >= 'a' && a[i] <= 'z'))
+		if ((a[j] >= 'A' && a[j] <= 'Z')
+		    || (a[j] >= 'a' && a[j] <= 'z'))
 		{
-			index = a[i] - 65;
+			index = a[j] - 65;
 			count += _putchar(arr[index]);
 		}
 		else
-			count += _putchar(a[i]);
-		i++;
+			count += _putchar(a[j]);
+		j++;
 	}
 	return (count);
 }
