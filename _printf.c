@@ -1,14 +1,20 @@
-#include "main.h"
+#include "header.h"
 
 void print_buffer(char buffer[], int *buff_ind);
 
 /**
+<<<<<<< HEAD
  * _printf - Printf function
  * @format: format.
  * Return: Printed chars.
+=======
+ * _printf : function
+ * @*format : format
+>>>>>>> fb361b5b04fef61e211cba2d765edae8d550ce37
  */
 int _printf(const char *format, ...)
 {
+<<<<<<< HEAD
 	int i, printed = 0, printed_chars = 0;
 	int flags, width, precision, size, buff_ind = 0;
 	va_list list;
@@ -63,4 +69,35 @@ void print_buffer(char buffer[], int *buff_ind)
 		write(1, &buffer[0], *buff_ind);
 
 	*buff_ind = 0;
+=======
+	unsigned h = 0, r_value = 0;
+	va_list args;
+	va_start(args, format);
+
+	for ( ; format[h] != '\0' ; h++)
+	{
+		if (format[h] != '%')
+		{
+			putchr(format[h]);
+		}
+		else if (format[h+1] == 'c')
+		{
+			putchr(va_arg(args, int));
+			h++;
+		}
+		else if (format[h+1] == 's')
+		{
+			int r_val = put_s(va_arg(args, char *));
+			h++;
+			r_value += (r_val - 1);
+		}
+		else if (format[h+1] == '%')
+		{
+			putchr('%');
+			h++;
+		}
+		r_value += 1;
+	}
+	return (r_value);
+>>>>>>> fb361b5b04fef61e211cba2d765edae8d550ce37
 }
